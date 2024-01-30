@@ -1,0 +1,16 @@
+[ req ]
+default_bits = 4096
+prompt = no
+default_md = sha256
+x509_extensions = v3_ca
+distinguished_name = dn
+
+[ dn ]
+CN = example root CA
+
+[ v3_ca ]
+subjectKeyIdentifier = hash
+authorityKeyIdentifier = keyid:always,issuer
+basicConstraints = critical, CA:true
+keyUsage = critical, digitalSignature, cRLSign, keyCertSign
+nameConstraints = critical, permitted;DNS:.test, permitted;DNS:.dev
